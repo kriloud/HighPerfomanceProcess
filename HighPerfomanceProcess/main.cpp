@@ -6,33 +6,26 @@
 //
 
 #include "math_sqr.h"
+#include "sha256.hpp"
+#include "chalanger.hpp"
+#include "rambo.hpp"
 #include <iostream>
 using namespace std;
 
-
-
-void rambo() {
-    double number1;
-    cout << "Enter number: " << endl;
-    cin >> number1;
-    cout << sqr((((number1+1)*5)/2)*19);
+void use_sha256() {
+    string input;
+    cout << "Enter something: ";
+    cin >> input;
+    cout << sha256(input) << endl;
 }
-
-void chalanger() {
-    double number1;
-    cout << "Enter number: " << endl;
-    cin >> number1;
-    cout << round((((sqrt(number1)/19)*2)/5)-1) << endl; //sqrt((((number1-1)/5)*2)/19);
-
-}
-
 
 int main() {
     int usless;
     
     cout << "Hello, World!\n" << endl;
     cout << "HighPerfomanceProccess" << endl;
-    cout << "To use rambo method press 1";
+    cout << "To use rambo method press 1 " << endl << "To use de rambo method press 2 " << endl << "To use sha256 press 3" << endl;
+    cout << "So, what do you need? #> ";
     cin >> usless;
     switch (usless) {
         case 1:
@@ -40,6 +33,9 @@ int main() {
             break;
         case 2:
             chalanger();
+            break;
+        case 3:
+            use_sha256();
             break;
             
         default:
