@@ -22,12 +22,14 @@ void use_sha256() {
 
 void use_xor() {
     string input;
+    string output;
     string key;
     cout << "Enter something: ";
     cin >> input;
     cout << "Enter Key: ";
     cin >> key;
-   // cout << xor_encrypt_string(input, key) << endl;
+    xor_cipher(input, output, key, 4);
+    cout << output;
 }
 
 int main() {
@@ -50,7 +52,7 @@ int main() {
             use_sha256();
             break;
         case 4:
-            use_xor();
+           // use_xor();
             break;
             
         default:

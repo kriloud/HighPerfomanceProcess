@@ -4,28 +4,24 @@
 //
 //  Created by Ilya on 04.09.2025.
 //
+#ifndef XOR_CIPHER_H
+#define XOR_CIPHER_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-void xor_encrypt_decrypt(const char* input, char* output, const char* key, int length) {
-    int key_len = strlen(key);
+void xor_cipher(std::string input, std::string output, std::string key, int length) {
+    int key_length = 0;
+    while (key[key_length] != '\0') key_length++;
+    
     for (int i = 0; i < length; i++) {
-        output[i] = input[i] ^ key[i % key_len];
+        output[i] = input[i] ^ key[i % key_length];
     }
 }
 
-char* xor_encrypt_string(const char* input, const char* key) {
-    int length = strlen(input);
-    char* encrypted = (char*)malloc(length + 1);
-    if (encrypted == NULL) return NULL;
-    
-    xor_encrypt_decrypt(input, encrypted, key, length);
-    encrypted[length] = '\0';
-    return encrypted;
+#ifdef __cplusplus
 }
+#endif
 
-char* xor_decrypt_string(const char* input, const char* key) {
-    return xor_encrypt_string(input, key);
-}
+#endif // XOR_CIPHER_H
