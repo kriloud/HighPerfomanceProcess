@@ -7,7 +7,7 @@
 
 #include "math_sqr.h"
 #include "sha256.hpp"
-#include "xor_cipher.h"
+#include "xor.hpp"
 #include "chalanger.hpp"
 #include "rambo.hpp"
 #include <iostream>
@@ -28,8 +28,7 @@ void use_xor() {
     cin >> input;
     cout << "Enter Key: ";
     cin >> key;
-    xor_cipher(input, output, key, 4);
-    cout << output;
+    cout << xor_cipher(input, key) << endl;
 }
 
 int main() {
@@ -52,7 +51,7 @@ int main() {
             use_sha256();
             break;
         case 4:
-           // use_xor();
+            use_xor();
             break;
             
         default:
